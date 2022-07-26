@@ -5,11 +5,12 @@ export default function List() {
   return (
     //przemek, dodac obsluge bledow
     <div>
-      {data.map((item) => (
-        <div>
-          {item.mail} || {item.type}
-        </div>
-      ))}
+      {data &&
+        data.map((item) => (
+          <div>
+            {item.mail} || {item.type}
+          </div>
+        ))}
     </div>
   );
 }
