@@ -1,0 +1,31 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "login": null,
+      "mail": "jane@gmail.com",
+      "name": "Jane",
+      "surename": "Love",
+      "password": "qwerty1234",
+      "type": "user"
+    },
+    {
+      "id": 2,
+      "login": "admin1234",
+      "mail": "admin1234@gmail.com",
+      "name": null,
+      "surename": null,
+      "password": "qwerty1234",
+      "type": "admin"
+    },
+    {
+      "id": 3,
+      "login": "admin678",
+      "mail": "admin678@gmail.com",
+      "name": null,
+      "surename": null,
+      "password": "qwerty1234",
+      "type": "admin"
+    }
+  ]
+}
