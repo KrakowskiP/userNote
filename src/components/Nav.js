@@ -8,11 +8,9 @@ export default function TopNav() {
         <Navbar.Collapse>
           <Nav className="me-auto">
             <Nav.Link href="/">List</Nav.Link>
-            <NavDropdown title="Add user" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/admin/create">
-                Add admin
-              </NavDropdown.Item>
-              <NavDropdown.Item href="/user/create">Add user</NavDropdown.Item>
+            <NavDropdown title="Add new" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/create/admin">Admin</NavDropdown.Item>
+              <NavDropdown.Item href="/create/user">User</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
