@@ -4,7 +4,9 @@ export default function useFetchData(url) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch(url)
+    const abortControler = new AbortController();
+
+    fetch(url, { signal: abortControler.signal })
       .then((res) => {
         if (!res.ok) {
           throw Error("error appears");
@@ -19,6 +21,7 @@ export default function useFetchData(url) {
           console.log("Fetch aborted");
         }
       });
+    return () => abortControler.abort();
   }, [url]);
 
   return { data };

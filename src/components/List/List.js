@@ -2,11 +2,17 @@ import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import useFetchData from "../hooks/useFetchData";
 import DeleteButton from "./DeleteButton";
+import { Link } from "react-router-dom";
+import { styled } from "@mui/system";
+
+const ListContainer = styled(Container)`
+  margin: 20px 10%;
+`;
 
 export default function List() {
   const { data } = useFetchData("http://localhost:3000/users");
   return (
-    <Container>
+    <ListContainer>
       <Table>
         <thead>
           <tr>
@@ -19,7 +25,9 @@ export default function List() {
           {data &&
             data.map((item) => (
               <tr key={item.id}>
-                <td>{item.mail}</td>
+                <td>
+                  <Link to={`/preview/${item.id}`}>{item.mail}</Link>
+                </td>
                 <td>{item.type}</td>
                 <td>
                   <DeleteButton id={item.id} />
@@ -28,6 +36,6 @@ export default function List() {
             ))}
         </tbody>
       </Table>
-    </Container>
+    </ListContainer>
   );
 }
