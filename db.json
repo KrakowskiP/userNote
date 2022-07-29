@@ -1,67 +1,40 @@
 {
   "users": [
     {
+      "type": "user",
+      "mail": "piesek@wp.pl",
+      "login": "Pies1",
+      "password": "jamnik",
+      "id": 46
+    },
+    {
       "type": "admin",
-      "name": "name",
-      "surename": "surename",
-      "mail": "kabanos@wp.pl",
-      "password": "qwerty123",
-      "id": 18
+      "name": "Kot",
+      "surename": "Niebieski",
+      "mail": "kot@wp.pl",
+      "password": "kotek",
+      "id": 47
     },
     {
       "type": "user",
-      "name": "name",
-      "surename": "surename",
-      "mail": "kabanos@wp.pl",
-      "password": "qwerty123",
-      "id": 26
+      "mail": "kojot@wp.pl",
+      "login": "kojotek",
+      "password": "kot",
+      "id": 48
     },
     {
       "type": "user",
-      "mail": "kabanos@wp.pl",
-      "login": "login",
-      "password": "qwerty123",
-      "id": 27
-    },
-    {
-      "type": "admin",
-      "name": "name111",
-      "surename": "surename",
-      "mail": "kabanos@wp.pl",
-      "password": "qwerty123",
-      "id": 28
-    },
-    {
-      "type": "admin",
-      "name": "name",
-      "surename": "surename",
-      "mail": "kabansssos@wp.pl",
-      "password": "qwerty123",
-      "id": 29
+      "mail": "tak@pw.pl",
+      "login": "tak",
+      "password": "yes",
+      "id": 49
     },
     {
       "type": "user",
-      "mail": "kabanosik@wp.pl",
-      "login": "login",
-      "password": "qwerty123",
-      "id": 30
-    },
-    {
-      "type": "admin",
-      "name": "name",
-      "surename": "surename",
-      "mail": "kabanos@wp.pl",
-      "password": "qwerty123",
-      "id": 31
-    },
-    {
-      "type": "admin",
-      "mail": "jak@mail.com",
-      "password": "sadasda",
-      "name": "jak",
-      "surename": "Jak",
-      "login": "janusz",
-      "id": 39
+      "mail": "nie@wp.pl",
+      "login": "nie",
+      "password": "GAHCAAAF",
+      "id": 50
     }
   ]
 }

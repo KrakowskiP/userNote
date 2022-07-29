@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { styled } from "@mui/system";
+import { Button } from "react-bootstrap";
 
 const FormContainer = styled(Form)`
   width: 50%;
@@ -9,15 +10,20 @@ const FormContainer = styled(Form)`
   margin: 20px auto;
 `;
 
+const SubmitContainer = styled("div")`
+  margin: 20px;
+`;
+
 export default function UserForm() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
+  const navigate = useNavigate();
   const onSubmit = (data) => {
     fetch("http://localhost:3000/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     }).then(() => {
-      console.log(data);
+      navigate("/");
     });
   };
 
@@ -26,15 +32,25 @@ export default function UserForm() {
   const isUser = currentUser === "user";
   const isAdmin = currentUser === "admin";
 
+  const generatePassword = () => {
+    let charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let password = "";
+    for (let i = 0; i < 8; ++i) {
+      password += charset.charAt(Math.floor(Math.random() * charset.length));
+    }
+    setValue("password", password);
+  };
+
   return (
     <FormContainer onSubmit={handleSubmit(onSubmit)}>
       <fieldset disabled>
         <Form.Group className="mb-3">
           <Form.Label>User type</Form.Label>
           <Form.Control
-            type="text"
-            {...register("type")}
             defaultValue={currentUser}
+            type="text"
+            required
+            {...register("type")}
           />
         </Form.Group>
       </fieldset>
@@ -43,16 +59,18 @@ export default function UserForm() {
           <Form.Group className="mb-3">
             <Form.Label>Name</Form.Label>
             <Form.Control
-              type="text"
               placeholder="Name"
+              required
+              type="text"
               {...register("name")}
             />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Surename</Form.Label>
             <Form.Control
-              type="text"
               placeholder="Surename"
+              required
+              type="text"
               {...register("surename")}
             />
           </Form.Group>
@@ -61,8 +79,9 @@ export default function UserForm() {
       <Form.Group className="mb-3">
         <Form.Label>Email address</Form.Label>
         <Form.Control
-          type="email"
           placeholder="Enter email"
+          required
+          type="email"
           {...register("mail")}
         />
       </Form.Group>
@@ -70,8 +89,9 @@ export default function UserForm() {
         <Form.Group className="mb-3">
           <Form.Label>Login</Form.Label>
           <Form.Control
-            type="text"
             placeholder="Login"
+            required
+            type="text"
             {...register("login")}
           />
         </Form.Group>
@@ -79,12 +99,16 @@ export default function UserForm() {
       <Form.Group className="mb-3">
         <Form.Label>Password</Form.Label>
         <Form.Control
-          type="password"
           placeholder="Password"
+          required
+          type="password"
           {...register("password")}
         />
       </Form.Group>
-      <input type="submit" />
+      <Button onClick={generatePassword}>Generate password</Button>
+      <SubmitContainer>
+        <Button type="submit">Submit</Button>
+      </SubmitContainer>
     </FormContainer>
   );
 }

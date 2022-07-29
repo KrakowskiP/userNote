@@ -2,7 +2,7 @@ import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 
 export default function TopNav() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="sm">
       <Container>
         <Navbar.Brand href="/">List</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

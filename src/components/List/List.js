@@ -3,17 +3,12 @@ import Table from "react-bootstrap/Table";
 import useFetchData from "../hooks/useFetchData";
 import DeleteButton from "./DeleteButton";
 import { Link } from "react-router-dom";
-import { styled } from "@mui/system";
-
-const ListContainer = styled(Container)`
-  margin: 20px 10%;
-`;
 
 export default function List() {
   const { data } = useFetchData("http://localhost:3000/users");
   return (
-    <ListContainer>
-      <Table>
+    <Container>
+      <Table responsive>
         <thead>
           <tr>
             <th>E-mail</th>
@@ -36,6 +31,6 @@ export default function List() {
             ))}
         </tbody>
       </Table>
-    </ListContainer>
+    </Container>
   );
 }

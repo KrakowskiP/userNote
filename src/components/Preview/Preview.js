@@ -7,7 +7,9 @@ import avatar from "../pictures/user.png";
 import EditButton from "./EditButton";
 
 const PreviewContainer = styled(Container)`
-  width: 30%;
+  width: 50%;
+  min-width: 400px;
+  padding: 20px;
 `;
 
 const Avatar = styled("img")`
@@ -19,20 +21,22 @@ export default function Preview() {
   const { id } = useParams();
   const { data } = useFetchData("http://localhost:3000/users/" + id);
   return (
-    <PreviewContainer>
-      <Avatar src={avatar} alt="User" />
-      {data && (
-        <ListGroup>
-          {Object.entries(data).map(([key, value]) => {
-            return (
-              <ListGroup.Item>
-                {key.toUpperCase()}: {value}
-              </ListGroup.Item>
-            );
-          })}
-        </ListGroup>
-      )}
-      <EditButton />
-    </PreviewContainer>
+    <>
+      <PreviewContainer>
+        <Avatar src={avatar} alt="User" />
+        {data && (
+          <ListGroup>
+            {Object.entries(data).map(([key, value], index) => {
+              return (
+                <ListGroup.Item key={index}>
+                  {key.toUpperCase()}: {value}
+                </ListGroup.Item>
+              );
+            })}
+          </ListGroup>
+        )}
+      </PreviewContainer>
+      <EditButton id={id} />
+    </>
   );
 }
